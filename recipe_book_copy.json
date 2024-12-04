@@ -1,0 +1,210 @@
+{
+    "Categories": [
+        "Desserts",
+        "Salads",
+        "Snacks & Light Meals",
+        "Vegetarian",
+        "Chicken & Turkey",
+        "Fish",
+        "Beef, Lamb & Pork",
+        "Soups",
+        "Breakfast"
+    ],
+    "Recipes": {
+        "Breakfast": [
+            "French toast",
+            "Omelette",
+            "Poached eggs",
+            "Scrambled eggs",
+            "Porridge",
+            "Fruity, nutty muesli"
+        ],
+        "Soups": [
+            "Chicken soup",
+            "Farmhouse vegetable soup",
+            "Mushroom soup",
+            "Cream of vegetable soup",
+            "Lentil soup",
+            "Minestrone soup",
+            "Leek and potato soup",
+            "Spicy lentil and tomato soup"
+        ],
+        "Beef, Lamb & Pork": [
+            "Spaghetti Bolognese",
+            "Cottage pie",
+            "Beef burgers",
+            "Meat loaf",
+            "Chilli con carne",
+            "Meatballs",
+            "Beef tacos",
+            "Beef stew",
+            "Pork stir-fry",
+            "Beef or lamb curry",
+            "Grilled pork chops with apple sauce",
+            "Pork and pepper kebabs",
+            "Pork, chickpea and sweet potato stew",
+            "Honey roast ham"
+        ],
+        "Fish": [
+            "Baked, stuffed fish",
+            "Fish pie",
+            "Tuna pasta bake",
+            "Peri-peri salmon",
+            "Fish fingers",
+            "Soy salmon",
+            "Sun-dried tomato cod",
+            "Grilled salmon cutlets"
+        ],
+        "Chicken & Turkey": [
+            "Chicken and vegetable casserole",
+            "Chicken curry",
+            "Chicken in tomato sauce",
+            "Barbeque chicken drumsticks",
+            "Baked chicken with cheese and mustard",
+            "Coronation chicken",
+            "Roast chicken and vegetables",
+            "Chicken fingers",
+            "Chicken fajitas",
+            "Chargrilled chicken kebabs",
+            "Turkey pie"
+        ],
+        "Vegetarian": [
+            "Spicy potato wedges",
+            "Spanish tortilla",
+            "Vegetable stir-fry with eggy rice",
+            "Midweek Mexican beans",
+            "Roasted vegetable pasta",
+            "Sweet potato satay stew",
+            "Moroccan vegetable tagine",
+            "Thai butternut squash curry",
+            "Rice and vegetable hotpot",
+            "Lentil and vegetable stew",
+            "Peas and rice"
+        ],
+        "Snacks & Light Meals": [
+            "A graze box",
+            "Packed lunch",
+            "Baked potatoes",
+            "Pancakes",
+            "Quiche",
+            "Potato cakes",
+            "Toasted cheese",
+            "Guacamole",
+            "Crunchy fruit and yoghurt",
+            "Hummus",
+            "Sweet potato crisps",
+            "Fruit salad",
+            "Kiwi, grape and apple smoothie",
+            "Red rooster smoothie",
+            "Nectarine, strawberry and banana smoothie",
+            "Peary nice smoothie"
+        ],
+        "Salads": [
+            "10-minute couscous salad",
+            "Chicken Caesar salad",
+            "Hot pasta salad",
+            "Warm chickpea salad",
+            "Mexican bean salad",
+            "Chicken and pasta salad",
+            "BLT pasta salad",
+            "Warm chicken noodle salad",
+            "Tuna rice salad",
+            "Lemony roast chicken couscous",
+            "Mixed bean and rice salad",
+            "Greek pasta salad"
+        ],
+        "Desserts & Breads": [
+            "Wholemeal bread",
+            "Queen cakes",
+            "Wholemeal scones",
+            "Irish tea brack",
+            "Banana bread",
+            "Carrot cake",
+            "Coffee cake",
+            "Apple or rhubarb crumble",
+            "Bread and butter pudding",
+            "Simple sponge",
+            "Simple oat bread",
+            "Ultimate basic muffins",
+            "Eton mess"
+        ]
+    },
+    "Measurements": {
+        "Weight": {
+            "5 g": "\u00bc oz",
+            "15 g": "\u00bd oz",
+            "25 g": "1 oz",
+            "50 g": "2 oz",
+            "85 g": "3 oz",
+            "110 g": "4 oz (\u00bc lb)",
+            "225 g": "8 oz (\u00bd lb)",
+            "450 g": "16 oz (1 lb)",
+            "900 g": "32 oz (2 lb)"
+        },
+        "Oven Temperature": {
+            "120\u00b0C": {
+                "Fahrenheit": "250\u00b0F",
+                "Gas mark": "Half"
+            },
+            "140\u00b0C": {
+                "Fahrenheit": "275\u00b0F",
+                "Gas mark": "1"
+            },
+            "180\u00b0C": {
+                "Fahrenheit": "350\u00b0F",
+                "Gas mark": "4"
+            },
+            "200\u00b0C": {
+                "Fahrenheit": "400\u00b0F",
+                "Gas mark": "6"
+            },
+            "220\u00b0C": {
+                "Fahrenheit": "425\u00b0F",
+                "Gas mark": "7"
+            }
+        },
+        "Volume": {
+            "\u00bd tsp": "2.5 ml",
+            "1 tsp": "5 ml",
+            "\u00bd tbsp": "7.5 ml",
+            "1 tbsp": "15 ml",
+            "\u00bd cup": "120 ml",
+            "1 cup": "240 ml",
+            "2 cups": "480 ml"
+        }
+    },
+    "Abbreviations": {
+        "Teaspoon": "tsp",
+        "Dessertspoon": "dstsp",
+        "Tablespoon": "tbsp",
+        "Fluid ounce": "fl oz",
+        "Ounce": "oz",
+        "Millilitre": "ml",
+        "Litre": "l",
+        "Pint": "pt",
+        "Pound": "lb",
+        "Gram": "g",
+        "Kilogram": "kg",
+        "Celsius": "\u00b0C",
+        "Fahrenheit": "\u00b0F"
+    },
+    "Introduction": "\nThe food we eat affects our health and well-being, and budget plays an important role in what food we buy and prepare.\nThis recipe book is designed to take this into consideration and provides easy-to-prepare, low-budget, tasty, yet highly nutritious meals.\nYou will find sections containing useful tips on shopping, home freezing, and meal planning.\n",
+    "Food Safety": {
+        "Introduction": "The food we eat affects our health and well-being...",
+        "Food Safety": [
+            "Store refrigerated and frozen foods as soon as possible.",
+            "Keep raw meat in sealed containers on the bottom shelf of the fridge.",
+            "Eat leftovers within 3 days."
+        ],
+        "Freezing Tips": [
+            "Do not put food in the freezer when it's still hot.",
+            "Your freezer should be at \u201318\u00b0C.",
+            "Do not freeze any foods after their 'use by' date."
+        ],
+        "Defrosting Tips": [
+            "Defrost food in the fridge for at least 24 hours for every 2\u20132.5 kg.",
+            "Cook or eat defrosted food within 24 hours.",
+            "Do not refreeze thawed food."
+        ]
+    }
+}
