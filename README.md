@@ -1,5 +1,8 @@
 # 🍴 Recipe Chatbot: Your AI-Powered Culinary Assistant
-![img.png](img.png)
+
+![img](https://github.com/user-attachments/assets/1d2a8bf6-aff4-4917-a4d3-264a8e92bbaa)
+
+
 The **Recipe Chatbot** is an advanced AI-powered tool developed in **Google Colab** to assist users in the kitchen. Whether you're looking for recipes, ingredient substitutions, or tips on cooking techniques, this chatbot provides instant, accurate, and context-aware answers. It uses cutting-edge technologies like **Retrieval-Augmented Generation (RAG)**, **HuggingFace models**, **Groq APIs**, and **large language models (LLMs)** to deliver an interactive and seamless experience.
 
 ---
