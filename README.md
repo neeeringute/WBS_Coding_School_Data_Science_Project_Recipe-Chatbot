@@ -1,6 +1,6 @@
 # 🍴 Recipe Chatbot: Your AI-Powered Culinary Assistant
 
-![img](https://github.com/user-attachments/assets/1d2a8bf6-aff4-4917-a4d3-264a8e92bbaa)
+![image](https://github.com/user-attachments/assets/1bc0ac4d-236d-4cfb-8771-583c426fbfa7)
 
 
 The **Recipe Chatbot** is an advanced AI-powered tool developed in **Google Colab** to assist users in the kitchen. Whether you're looking for recipes, ingredient substitutions, or tips on cooking techniques, this chatbot provides instant, accurate, and context-aware answers. It uses cutting-edge technologies like **Retrieval-Augmented Generation (RAG)**, **HuggingFace models**, **Groq APIs**, and **large language models (LLMs)** to deliver an interactive and seamless experience.
@@ -8,6 +8,7 @@ The **Recipe Chatbot** is an advanced AI-powered tool developed in **Google Cola
 ---
 
 ## 📋 Key Features
+
 - **Recipe Suggestions**: Based on ingredients, preferences, or user queries.
 - **Ingredient Substitutions**: Offers alternatives for unavailable ingredients.
 - **Cooking Tips**: Provides guidance on various culinary techniques and methods.
@@ -24,93 +25,101 @@ The **Recipe Chatbot** is an advanced AI-powered tool developed in **Google Cola
 
 ### Data Extraction and Preparation
 - **PyPDF2 & PyMuPDF**: Extract recipe data and related text from PDF files.
-- **JSON Conversion**: Extracted data from the PDF is structured and converted into a **JSON file** for efficient access and management.
-- **FAISS (Facebook AI Similarity Search)**: Efficient vector-based document storage and retrieval.
-- **LangChain**: Framework for building conversational AI with structured workflows.
+- **JSON Conversion**: Extracted data is converted into structured **JSON** format.
+- **FAISS**: Vector database for efficient semantic search.
+- **LangChain**: Conversational workflow orchestration.
 
 ### Conversational AI
-- **HuggingFace Models**: 
-  - **Embeddings**: Semantic search using `sentence-transformers/all-MiniLM-l6-v2`.
-  - **Language Models**: Generating natural, context-aware responses.
-- **Groq APIs**: Handles conversational capabilities and advanced AI integration.
-- **Large Language Models (LLMs)**: Mistral-7B-Instruct for high-quality text generation.
+- **HuggingFace Models**:
+  - Embeddings: `sentence-transformers/all-MiniLM-l6-v2`
+  - LLMs: Mistral-7B via Groq API
+- **Groq APIs**: Real-time LLM responses
+- **LangChain Memory**: Maintains conversation history
 
 ### Deployment and Interface
-- **Streamlit**: Builds an interactive web-based interface for the chatbot.
-- **Localtunnel**: Allows public access to the chatbot via secure URLs.
-
----
-
-## 📂 Project Workflow
-
-### 1. Development in Google Colab
-Google Colab served as the primary environment for:
-- Extracting recipe data from a PDF using PyPDF2 and PyMuPDF.
-- Converting the extracted PDF data into a **JSON file** for structured access and reuse.
-- Categorizing recipes into structured formats like soups, desserts, and vegetarian options.
-- Testing and refining conversational logic using LangChain and FAISS.
-
-### 2. Data Preparation
-Recipes are extracted from a PDF recipe book and converted to JSON. This structured data includes:
-- **Recipe Categories**: Organized into types like soups, desserts, and vegetarian.
-- **Measurement Conversions**: E.g., "1 oz = 28.35 g".
-- **Cooking Tips**: Guidelines for freezing, defrosting, and food safety.
-
-The JSON data is further stored in a **FAISS vector database** for fast and accurate retrieval.
-
-### 3. Conversational Retrieval
-The chatbot uses **LangChain’s Conversational Retrieval Chain**, which combines:
-- Semantic search with HuggingFace embeddings.
-- Context-aware responses powered by Groq APIs and LLMs.
-
-### 4. Chatbot Interaction
-The chatbot is deployed via Streamlit, allowing users to:
-- Query recipes based on ingredients.
-- Get real-time substitutions for missing ingredients.
-- Learn cooking techniques or ask for tips.
+- **Streamlit**: Interactive web interface
+- **Localtunnel**: Secure public URL for chatbot access
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Python 3.7 or higher
 - Installed dependencies: `PyPDF2`, `pymupdf`, `gradio`, `faiss-cpu`, `langchain`
 
 ### Installation
-1. **Clone the Repository**:
-   ```bash
-   git clone <repository-url>
-   cd recipe-chatbot
 
-2. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   
-3. **Prepare the Data**:
+#### Clone the Repository:
+```bash
+git clone <repository-url>
+cd recipe-chatbot
+```
 
-- Place the recipe book PDF in the /content directory of Google Colab.
-- Update the file path in the script if necessary.
+### Install Dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-4. **Extract and Convert Recipes**: 
-Run the script in Google Colab to process the PDF and convert it into a structured JSON file:
-   ```bash
-   python extract_recipes.py
-   
-5. **Launch the Chatbot: Start the Streamlit application**:
-   ```bash
-   streamlit run rag_app.py
-6. Access the Chatbot:
+### Prepare the Data:
 
-- Use the local URL provided by Streamlit.
-- If hosted remotely, the public URL will be generated by Localtunnel.
+- Upload the recipe book PDF to `/content` in Google Colab.
+- Adjust the path in the script if needed.
+
+### Extract and Convert Recipes:
+```python
+from google.colab import files
+uploaded = files.upload()
+
+import fitz
+def extract_text_from_pdf(file_path):
+    doc = fitz.open(file_path)
+    text = ''.join(page.get_text() for page in doc)
+    return text
+
+import json
+with open("recipe_book_data.json", "w") as file:
+    json.dump(data, file, indent=4)
+```
+
+### Build the FAISS Vector Store:
+```python
+from langchain.vectorstores import FAISS
+vector_db = FAISS.from_documents(documents, embeddings)
+vector_db.save_local("/content/faiss_index")
+```
+
+---
+
+## 🧠 Setup
+
+Create your chatbot app in `rag_app.py` and run:
+
+```bash
+streamlit run rag_app.py & npx localtunnel --port 8501
+```
+
+---
 
 ## 🌟 Example Interaction
-**User Input**:
 
-"What can I make with tomatoes and basil?"
+**User Input**:  
+> _"What can I make with tomatoes and basil?"_
 
 **Chatbot Response**:
+```yaml
+🍅 Recipe Name: Tomato Basil Pasta  
+🧂 Ingredients: Tomatoes, Basil, Garlic, Olive Oil, Pasta  
+👨‍🍳 Instructions: Cook pasta, sauté garlic and tomatoes, stir in basil, combine and serve.
+```
+
+---
+
+## ❤️ Credits
+
+Developed with love by **Neringa Pannem**  
+Powered by: **LangChain**, **HuggingFace**, **Groq**, **FAISS**, and **Streamlit**
 
 
 
