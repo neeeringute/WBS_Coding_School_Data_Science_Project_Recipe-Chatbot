@@ -32,7 +32,7 @@ The **Recipe Chatbot** is an advanced AI-powered tool developed in **Google Cola
 ### Conversational AI
 - **HuggingFace Models**:
   - Embeddings: `sentence-transformers/all-MiniLM-l6-v2`
-  - LLMs: Mistral-7B via Groq API
+  - LLMs: llama3-70b-8192 via Groq API
 - **Groq APIs**: Real-time LLM responses
 - **LangChain Memory**: Maintains conversation history
 
