@@ -12,13 +12,13 @@ Original file is located at
 !pip install pymupdf
 
 # Commented out IPython magic to ensure Python compatibility.
-# %%bash
-# pip install -qqq -U langchain-groq
-# pip install -qqq -U langchain-huggingface
-# pip install -qqq -U langchain
-# pip install -qqq -U langchain-community
-# pip install -qqq -U faiss-cpu
-# pip install huggingface_hub[hf_xet]
+ %%bash
+ pip install -qqq -U langchain-groq
+ pip install -qqq -U langchain-huggingface
+ pip install -qqq -U langchain
+ pip install -qqq -U langchain-community
+ pip install -qqq -U faiss-cpu
+ pip install huggingface_hub[hf_xet]
 
 # Importing the Colab 'files' module for file upload functionality
 from google.colab import files
@@ -368,129 +368,129 @@ uploaded = files.upload()
 !npm install -qqq -U localtunnel
 
 # Commented out IPython magic to ensure Python compatibility.
-# #for use
-# %%writefile rag_app.py
-# 
-# from langchain.vectorstores import FAISS
-# from langchain.prompts import PromptTemplate
-# from langchain.memory import ConversationBufferMemory
-# from langchain.chains import ConversationalRetrievalChain
-# from langchain_huggingface import HuggingFaceEmbeddings
-# from langchain_groq import ChatGroq
-# import streamlit as st
-# 
-# # 🍳 Initialize the embeddings
-# embedding_model = "sentence-transformers/all-MiniLM-l6-v2"
-# embeddings_folder = "/content/"
-# embeddings = HuggingFaceEmbeddings(model_name=embedding_model, cache_folder=embeddings_folder)
-# 
-# # 🗂️ Load the FAISS index
-# vector_db = FAISS.load_local("/content/faiss_index", embeddings, allow_dangerous_deserialization=True)
-# retriever = vector_db.as_retriever(search_kwargs={"k": 5})
-# 
-# # 🤖 Initialize the language model
-# llm = ChatGroq(
-#     model_name="llama3-70b-8192",
-#     temperature=0.9,
-#     groq_api_key="your_actual_groq_api_key_here",
-#     max_tokens=600
-# )
-# 
-# # memory
-# @st.cache_resource
-# def init_memory():
-#     return ConversationBufferMemory(
-#         llm=llm,
-#         input_key="question",
-#         output_key="answer",
-#         memory_key="chat_history",
-#         return_messages=True
-#     )
-# memory = init_memory()
-# 
-# # 📜 Define the prompt template
-# template = """
-# 🍴 You are a cooking assistant chatbot. Answer the user's cooking-related questions.
-# - 🥗 Provide recipes when ingredients are given, using metric units (g, kg, ml, l).
-# - 🍲 For substitution or technique-related questions, give direct and concise answers.
-# - 📖 Structure your responses clearly with headings like "Recipe Name," "Ingredients," and "Instructions" when providing recipes.
-# 
-# 🔄 Conversion Notes:
-# - 🧂 Convert solid ingredients from ounces (oz) to grams (g) using 1 oz = 28.35 g.
-# - 🥤 Convert liquid ingredients from fluid ounces (fl oz) to milliliters (ml) using 1 fl oz = 29.5735 ml.
-# 
-# 🗣️ Previous conversation:
-# {chat_history}
-# 
-# 📚 Context:
-# {context}
-# 
-# 👩‍🍳 User's Question:
-# {question}
-# 
-# ✨ Response:
-# """
-# 
-# prompt = PromptTemplate(template=template, input_variables=["context", "question"])
-# 
-# # 🛠️ Conversational Retrieval Chain setup
-# chain_3 = ConversationalRetrievalChain.from_llm(
-#     llm=llm,
-#     retriever=retriever,
-#     memory=memory,
-#     return_source_documents=True,
-#     combine_docs_chain_kwargs={"prompt": prompt}
-# )
-# 
-# # 🌟 Streamlit UI
-# # Display Header Image
-# st.image("/content/_ac756658-e799-4991-8d8b-591643028427.jpeg", use_container_width=True, width=400)
-# 
-# st.title("🍴 Recipe Chatbot")
-# st.header("Your Personal Culinary Assistant")
-# st.text("Ask me for recipes, substitutions, or cooking techniques!")
-# 
-# # Chat History
-# if "messages" not in st.session_state:
-#     st.session_state.messages = []
-# 
-# # Display chat messages from history on app rerun
-# for message in st.session_state.messages:
-#     if message["role"] == "user":
-#         with st.chat_message("user"):
-#             st.markdown(f"👩‍🍳 **You:** {message['content']}")
-#     else:
-#         with st.chat_message("assistant"):
-#             st.markdown(f"🤖 **Chatbot:** {message['content']}")
-# 
-# # Input box for user
-# if user_input := st.chat_input("Ask your cooking question here:"):
-#     # Add user's question to chat history
-#     st.session_state.messages.append({"role": "user", "content": user_input})
-# 
-#     # Display user message
-#     with st.chat_message("user"):
-#         st.markdown(user_input)
-# 
-#     # Begin spinner before answering question
-#     with st.spinner("Cooking up your answer... 🍳"):
-#         response = chain_3.invoke({"question": user_input})
-#         chatbot_response = response["answer"]
-# 
-#     # Add assistant response to chat history
-#     st.session_state.messages.append({"role": "assistant", "content": chatbot_response})
-# 
-#     # Display chatbot response
-#     with st.chat_message("assistant"):
-#         st.markdown(chatbot_response)
-# 
-# # Footer
-# st.markdown(
-#     "<div style='text-align: center; color: gray; font-size: small;'>"
-#     "Made with ❤️ by Neringa Pannem • Powered by LangChain, HuggingFace & Groq"
-#     "</div>",
-#     unsafe_allow_html=True)
-# 
-#
+#for use
+ %%writefile rag_app.py
+ 
+ from langchain.vectorstores import FAISS
+ from langchain.prompts import PromptTemplate
+ from langchain.memory import ConversationBufferMemory
+ from langchain.chains import ConversationalRetrievalChain
+ from langchain_huggingface import HuggingFaceEmbeddings
+ from langchain_groq import ChatGroq
+ import streamlit as st
+ 
+ # 🍳 Initialize the embeddings
+ embedding_model = "sentence-transformers/all-MiniLM-l6-v2"
+ embeddings_folder = "/content/"
+ embeddings = HuggingFaceEmbeddings(model_name=embedding_model, cache_folder=embeddings_folder)
+ 
+ # 🗂️ Load the FAISS index
+ vector_db = FAISS.load_local("/content/faiss_index", embeddings, allow_dangerous_deserialization=True)
+ retriever = vector_db.as_retriever(search_kwargs={"k": 5})
+ 
+ # 🤖 Initialize the language model
+ llm = ChatGroq(
+     model_name="llama3-70b-8192",
+     temperature=0.9,
+     groq_api_key="your_actual_groq_api_key_here",
+     max_tokens=600
+ )
+ 
+ # memory
+ @st.cache_resource
+ def init_memory():
+     return ConversationBufferMemory(
+         llm=llm,
+         input_key="question",
+         output_key="answer",
+         memory_key="chat_history",
+         return_messages=True
+     )
+ memory = init_memory()
+ 
+ # 📜 Define the prompt template
+ template = """
+ 🍴 You are a cooking assistant chatbot. Answer the user's cooking-related questions.
+ - 🥗 Provide recipes when ingredients are given, using metric units (g, kg, ml, l).
+ - 🍲 For substitution or technique-related questions, give direct and concise answers.
+ - 📖 Structure your responses clearly with headings like "Recipe Name," "Ingredients," and "Instructions" when providing recipes.
+ 
+ 🔄 Conversion Notes:
+ - 🧂 Convert solid ingredients from ounces (oz) to grams (g) using 1 oz = 28.35 g.
+ - 🥤 Convert liquid ingredients from fluid ounces (fl oz) to milliliters (ml) using 1 fl oz = 29.5735 ml.
+ 
+ 🗣️ Previous conversation:
+ {chat_history}
+ 
+ 📚 Context:
+ {context}
+ 
+ 👩‍🍳 User's Question:
+ {question}
+ 
+ ✨ Response:
+ """
+ 
+ prompt = PromptTemplate(template=template, input_variables=["context", "question"])
+ 
+ # 🛠️ Conversational Retrieval Chain setup
+ chain_3 = ConversationalRetrievalChain.from_llm(
+     llm=llm,
+     retriever=retriever,
+     memory=memory,
+     return_source_documents=True,
+     combine_docs_chain_kwargs={"prompt": prompt}
+ )
+ 
+ # 🌟 Streamlit UI
+ # Display Header Image
+ st.image("/content/_ac756658-e799-4991-8d8b-591643028427.jpeg", use_container_width=True, width=400)
+ 
+ st.title("🍴 Recipe Chatbot")
+ st.header("Your Personal Culinary Assistant")
+ st.text("Ask me for recipes, substitutions, or cooking techniques!")
+ 
+ # Chat History
+ if "messages" not in st.session_state:
+     st.session_state.messages = []
+ 
+ # Display chat messages from history on app rerun
+ for message in st.session_state.messages:
+     if message["role"] == "user":
+         with st.chat_message("user"):
+             st.markdown(f"👩‍🍳 **You:** {message['content']}")
+     else:
+         with st.chat_message("assistant"):
+             st.markdown(f"🤖 **Chatbot:** {message['content']}")
+ 
+ # Input box for user
+ if user_input := st.chat_input("Ask your cooking question here:"):
+     # Add user's question to chat history
+     st.session_state.messages.append({"role": "user", "content": user_input})
+ 
+     # Display user message
+     with st.chat_message("user"):
+         st.markdown(user_input)
+ 
+     # Begin spinner before answering question
+     with st.spinner("Cooking up your answer... 🍳"):
+         response = chain_3.invoke({"question": user_input})
+         chatbot_response = response["answer"]
+ 
+     # Add assistant response to chat history
+     st.session_state.messages.append({"role": "assistant", "content": chatbot_response})
+ 
+     # Display chatbot response
+     with st.chat_message("assistant"):
+         st.markdown(chatbot_response)
+ 
+ # Footer
+ st.markdown(
+     "<div style='text-align: center; color: gray; font-size: small;'>"
+     "Made with ❤️ by Neringa Pannem • Powered by LangChain, HuggingFace & Groq"
+     "</div>",
+     unsafe_allow_html=True)
+ 
+
 
 !streamlit run rag_app.py &> /content/logs.txt & npx localtunnel --port 8501 & curl ipv4.icanhazip.com
